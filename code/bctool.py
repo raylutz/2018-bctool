@@ -845,8 +845,8 @@ def compute_winner(strata_sample_tallies,
         final_collection_tally = restored_sample_tally
         final_tallies = final_tallies + final_collection_tally
     final_tallies = [(k, final_tallies[k]) for k in range(len(final_tallies))]
-    final_tallies.sort(key=lambda x: x[1])
-    winners_with_tallies = final_tallies[-n_winners:]
+    final_tallies_sorted = sorted(final_tallies, key=lambda x: x[1])
+    winners_with_tallies = final_tallies_sorted[-n_winners:]
     winners = [winner_tally[0] for winner_tally in winners_with_tallies]
 
     if pretty_print:
